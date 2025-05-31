@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Avenir Next', sans-serif;
+  background: #1b4875;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4em;
+  font-family: 'Avenir Next', Verdana;
+  font-weight: bold;
+  margin: 0.5em 0;
+  letter-spacing: -5px;
+}
+
+h1.actualScore {
+  letter-spacing: -10px;
+}
+
+h1 strong {
+  font-size: 1.35em;
+  display: inline-block;
+  margin: 0 0.25em;
+}
+
+canvas {
+  width: 80vmin;
+  height: 80vmin;
+  max-width: 600px;
+  max-height: 600px;
+  display: block;
+  margin: 1rem auto;
+  border: 10px solid #031527;
+  touch-action: none;
+}
+
+.gameOptions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.start-again {
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/* Game controls - tlačidlá so šípkami pre mobily */
+.game-controls {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .game-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .game-controls .row {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .game-controls .arrow {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .game-controls .arrow:active {
+    background-color: #ccc;
+  }
+}

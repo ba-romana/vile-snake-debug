@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romana's vile snake</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./main.js"></script>
+</head>
+<body>
+    <h1 class="title">Romana's vile snake</h1>
+
+<!--    <h2>Game style:</h2>
+        <div class="gameOptions">
+        <form class="velocityStyle" action="">
+            <input type="radio" name="velocity" id="style1" value="slow" checked> <label for="style1">Zen</label>
+            <input type="radio" name="velocity" id="style2" value="fast"> <label for="style2">Fast and furious</label>
+        </form>
+        <span class="divider">|</span>
+        <form class="gameboardStyle" action="">
+            <input type="radio" name="gameboard" id="style1" value="infinite" checked> <label for="style1">Infinite</label>
+            <input type="radio" name="gameboard" id="style2" value="square"> <label for="style2">Square</label>
+        </form>
+    </div> -->
+
+    <canvas width="600" height="600"></canvas>
+
+
+    <section class="game-controls">
+        <div class="row">
+            <button class="arrow" id="arrow-up">↑</button>
+        </div>
+        <div class="row">
+            <button class="arrow" id="arrow-left">←</button>
+            <button class="arrow" id="arrow-down">↓</button>
+            <button class="arrow" id="arrow-right">→</button>
+        </div>
+    </section>
+
+    <div id="debug-log" style="font-family: monospace; white-space: pre-wrap; background: #eee; padding: 5px;"></div>
+    <script>
+        function log(...args) {
+            const logBox = document.getElementById('debug-log');
+            const msg = args.map(a => typeof a === 'object' ? JSON.stringify(a) : a).join(' ');
+            console.log(msg); // stále logujeme aj do konzoly
+            logBox.textContent += msg + '\n';
+        }
+    </script>
+
+    <h1 class="score">0</h1>
+    <h2 class="bestScore">Best score: 0</h2>
+
+</body>
+</html>
