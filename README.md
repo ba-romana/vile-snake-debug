@@ -4,4 +4,4 @@
 
 Playground so zobrazovaním logov a všetkého na webe, tu skúšam záhadu vyriešiť
 
-[HRA DOSTUPNÁ TU!!!](https://ba-romana.github.io/snake/)
+[HRA DOSTUPNÁ TU!!!](https://ba-romana.github.io/vile-snake-debug/)

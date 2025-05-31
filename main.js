@@ -4,16 +4,17 @@ document.querySelectorAll('input[type="radio"]').forEach(input =>
 ); 
 
 document.addEventListener('keydown', keyPush)
-document.querySelector('.game-controls').addEventListener('click', function (event) {
+document.querySelector('.game-controls').addEventListener('pointerdown', function (event) {
     event.preventDefault();
-    console.log('Clicked:', event.target, event.target.id, event.target.className);
-    log('Clicked:', event.target, event.target.id, event.target.className);
 
     const id = event.target.id;
     if (id === 'arrow-up') changeDirection('up');
     if (id === 'arrow-down') changeDirection('down');
     if (id === 'arrow-left') changeDirection('left');
     if (id === 'arrow-right') changeDirection('right');
+
+    console.log('Clicked:', event.target, event.target.id, event.target.className);
+    log('Clicked:', event.target, event.target.id, event.target.className);
 }, { passive: false });
 
 let touchStartX = 0;
@@ -307,32 +308,35 @@ function drawGrid(){
 // tu nastavujeme game controls
 
 function changeDirection(direction) {
-  switch (direction) {
-    case 'up':
-      if (velocityY !== 1) {
-        velocityX = 0;
-        velocityY = -1;
-      }
-      break;
-    case 'down':
-      if (velocityY !== -1) {
-        velocityX = 0;
-        velocityY = 1;
-      }
-      break;
-    case 'left':
-      if (velocityX !== 1) {
-        velocityX = -1;
-        velocityY = 0;
-      }
-      break;
-    case 'right':
-      if (velocityX !== -1) {
-        velocityX = 1;
-        velocityY = 0;
-      }
-      break;
-  }
+    console.log(`Requested: ${direction} | Current: (${velocityX}, ${velocityY})`);
+    log(`Requested: ${direction} | Current: (${velocityX}, ${velocityY})`);
+    
+    switch (direction) {
+        case 'up':
+        if (velocityY !== 1) {
+            velocityX = 0;
+            velocityY = -1;
+        }
+        break;
+        case 'down':
+        if (velocityY !== -1) {
+            velocityX = 0;
+            velocityY = 1;
+        }
+        break;
+        case 'left':
+        if (velocityX !== 1) {
+            velocityX = -1;
+            velocityY = 0;
+        }
+        break;
+        case 'right':
+        if (velocityX !== -1) {
+            velocityX = 1;
+            velocityY = 0;
+        }
+        break;
+    }
 };
 
 function keyPush(event){
