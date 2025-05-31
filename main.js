@@ -13,6 +13,8 @@ document.querySelector('.game-controls').addEventListener('pointerdown', functio
     if (id === 'arrow-left') changeDirection('left');
     if (id === 'arrow-right') changeDirection('right');
 
+    swipeLocked = true;
+
     console.log('Clicked:', event.target, event.target.id, event.target.className);
     log('Clicked:', event.target, event.target.id, event.target.className);
 }, { passive: false });
@@ -26,6 +28,11 @@ document.querySelector('canvas').addEventListener("touchstart", (event) => {
 }, { passive: false });
 
 document.addEventListener("touchend", (event) => {
+    if (swipeLocked) {
+        swipeLocked = false;
+        return;
+    }
+
     const touchEndX = event.changedTouches[0].clientX;
     const touchEndY = event.changedTouches[0].clientY;
 
@@ -310,7 +317,7 @@ function drawGrid(){
 function changeDirection(direction) {
     console.log(`Requested: ${direction} | Current: (${velocityX}, ${velocityY})`);
     log(`Requested: ${direction} | Current: (${velocityX}, ${velocityY})`);
-    
+
     switch (direction) {
         case 'up':
         if (velocityY !== 1) {
@@ -369,6 +376,8 @@ function keyPush(event){
 };
 
 function swipePush(startX, startY, endX, endY) {
+    let swipeLocked = false;
+
     const diffX = endX - startX;
     const diffY = endY - startY;
 
