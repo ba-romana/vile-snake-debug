@@ -4,7 +4,7 @@ document.querySelectorAll('input[type="radio"]').forEach(input =>
 ); 
 
 document.addEventListener('keydown', keyPush)
-document.querySelector('.game-controls').addEventListener('pointerdown', function (event) {
+document.querySelector('.game-controls').addEventListener('click', function (event) {
     event.preventDefault();
     console.log('Clicked:', event.target, event.target.id, event.target.className);
     log('Clicked:', event.target, event.target.id, event.target.className);
